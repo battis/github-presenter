@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9a6d8a8ff2f5ae68fc20b67fa6131d09",
-    "content-hash": "4df018b755fd0caf378272766f180f59",
+    "hash": "4a1298ade0d86fe3a8e8f4c13d13ffeb",
+    "content-hash": "a0be2f8506ae17fe65690772e0521088",
     "packages": [
         {
             "name": "battis/data-utilities",
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/battis/data-utilities.git",
-                "reference": "14f3d457ebc7b661c4c42596d0567dc85bab9e2a"
+                "reference": "2675320d7b9099c0689a6db9e2262ea70d40742f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/battis/data-utilities/zipball/14f3d457ebc7b661c4c42596d0567dc85bab9e2a",
-                "reference": "14f3d457ebc7b661c4c42596d0567dc85bab9e2a",
+                "url": "https://api.github.com/repos/battis/data-utilities/zipball/2675320d7b9099c0689a6db9e2262ea70d40742f",
+                "reference": "2675320d7b9099c0689a6db9e2262ea70d40742f",
                 "shasum": ""
             },
             "type": "library",
@@ -38,7 +38,68 @@
                 }
             ],
             "description": "A handful of useful helper functions to process data",
-            "time": "2015-08-27 20:31:48"
+            "time": "2015-10-11 14:54:59"
+        },
+        {
+            "name": "dompdf/dompdf",
+            "version": "dev-develop",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dompdf/dompdf.git",
+                "reference": "5d80bca8fe8586dc8c29fe3aa1f0b8e96cc94918"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dompdf/dompdf/zipball/5d80bca8fe8586dc8c29fe3aa1f0b8e96cc94918",
+                "reference": "5d80bca8fe8586dc8c29fe3aa1f0b8e96cc94918",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-gd": "*",
+                "ext-mbstring": "*",
+                "phenx/php-font-lib": "0.4.*",
+                "phenx/php-svg-lib": "0.1.*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dompdf\\": "src/"
+                },
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                },
+                {
+                    "name": "Brian Sweeney",
+                    "email": "eclecticgeek@gmail.com"
+                },
+                {
+                    "name": "Gabriel Bull",
+                    "email": "me@gabrielbull.com"
+                }
+            ],
+            "description": "DOMPDF is a CSS 2.1 compliant HTML to PDF converter",
+            "homepage": "https://github.com/dompdf/dompdf",
+            "time": "2015-10-10 02:57:05"
         },
         {
             "name": "educoder/pest",
@@ -171,6 +232,74 @@
             "time": "2015-03-01 12:03:08"
         },
         {
+            "name": "phenx/php-font-lib",
+            "version": "0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-font-lib.git",
+                "reference": "b8af0cacdc3cbf1e41a586fcb78f506f4121a088"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-font-lib/zipball/b8af0cacdc3cbf1e41a586fcb78f506f4121a088",
+                "reference": "b8af0cacdc3cbf1e41a586fcb78f506f4121a088",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "FontLib\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse, export and make subsets of different types of font files.",
+            "homepage": "https://github.com/PhenX/php-font-lib",
+            "time": "2015-05-06 20:02:39"
+        },
+        {
+            "name": "phenx/php-svg-lib",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PhenX/php-svg-lib.git",
+                "reference": "b419766515b3426c6da74b0e29e93d71c4f17099"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PhenX/php-svg-lib/zipball/b419766515b3426c6da74b0e29e93d71c4f17099",
+                "reference": "b419766515b3426c6da74b0e29e93d71c4f17099",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Svg\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Ménager",
+                    "email": "fabien.menager@gmail.com"
+                }
+            ],
+            "description": "A library to read, parse and export to PDF SVG files.",
+            "homepage": "https://github.com/PhenX/php-svg-lib",
+            "time": "2015-05-06 18:49:49"
+        },
+        {
             "name": "smarty/smarty",
             "version": "dev-master",
             "source": {
@@ -264,12 +393,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/smtech/stmarkssmarty.git",
-                "reference": "71e3cc71a1f81c2b8bdb298b53bc183728c66af9"
+                "reference": "82f6127917cc48eb1bc9caa534fa8025ffa8ba53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smtech/stmarkssmarty/zipball/71e3cc71a1f81c2b8bdb298b53bc183728c66af9",
-                "reference": "71e3cc71a1f81c2b8bdb298b53bc183728c66af9",
+                "url": "https://api.github.com/repos/smtech/stmarkssmarty/zipball/82f6127917cc48eb1bc9caa534fa8025ffa8ba53",
+                "reference": "82f6127917cc48eb1bc9caa534fa8025ffa8ba53",
                 "shasum": ""
             },
             "require": {
@@ -298,7 +427,7 @@
                 }
             ],
             "description": "A standard Smarty install for St. Mark's projects",
-            "time": "2015-08-26 19:31:34"
+            "time": "2015-10-11 14:49:12"
         }
     ],
     "packages-dev": [],

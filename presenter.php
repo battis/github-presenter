@@ -15,6 +15,9 @@ function isFiltered($filename) {
 }
 
 $step = (empty($_REQUEST['step']) ? STEP_COMMIT : $_REQUEST['step']);
+$extensions = array(
+	'tpl' => 'smarty'
+);
 
 switch($step) {
 	
@@ -30,7 +33,11 @@ switch($step) {
 		$files = array();
 		foreach ($_REQUEST['files'] as $path => $url) {
 			$blob = json_decode($github->get($url), true);
-			$geshi = new GeSHi(base64_decode($blob['content']), preg_replace('/^.*\.(\w+)$/', '$1', $path));
+			$language = preg_replace('/^.*\.(\w+)$/', '$1', $path);
+			if (array_key_exists($language, $extensions)) {
+				$language = $extensions[$language];
+			}
+ 			$geshi = new GeSHi(base64_decode($blob['content']), $language);
 			$geshi->set_header_type(GESHI_HEADER_PRE_TABLE);
 			$geshi->enable_line_numbers(GESHI_FANCY_LINE_NUMBERS);
 
@@ -42,7 +49,15 @@ switch($step) {
 		}
 		
 		$smarty->assign('files', $files);
-		$smarty->display('display.tpl');
+		if (empty($_REQUEST['pdf']) || !$_REQUEST['pdf']) {
+			$smarty->display('display.tpl');
+		} else {
+			$dompdf = new \Dompdf\Dompdf();
+			$dompdf->loadHtml($smarty->fetch('display.tpl'));
+			$dompdf->render();
+			$dompdf->stream();
+			exit;
+		}
 	
 		break;
 

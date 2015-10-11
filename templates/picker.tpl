@@ -2,6 +2,6 @@
 
 {block name="subcontent"}
 
-	{include file="picker/$formTemplate"}
+	{include file="presenter/$formTemplate"}
 
 {/block}

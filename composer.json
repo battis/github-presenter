@@ -5,7 +5,8 @@
         "smtech/stmarkssmarty": "dev-master",
         "educoder/pest": "dev-master",
         "geshi/geshi": "dev-master",
-		"michelf/php-markdown": "~1.5"
+		"michelf/php-markdown": "~1.5",
+		"dompdf/dompdf" : "~0.6"
     },
     "license": "GPL-3.0",
     "authors": [
