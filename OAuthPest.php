@@ -21,3 +21,5 @@ class TokenPest extends Pest {
 		return parent::prepHeaders(array_merge($this->headers, $headers));
 	}
 }
+
+?>
