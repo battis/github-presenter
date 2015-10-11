@@ -1,0 +1,21 @@
+{
+    "name": "battis/github-presenter",
+    "description": "Present the source code in the tree of a Git commit as a single web page",
+    "require": {
+        "smtech/stmarkssmarty": "dev-master",
+        "educoder/pest": "dev-master",
+        "geshi/geshi": "dev-master",
+		"michelf/php-markdown": "~1.5"
+    },
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Seth Battis",
+            "email": "seth@battis.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "classmap": [""]
+    }
+}
