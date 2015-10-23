@@ -23,14 +23,14 @@
 
 	{include file="commit.tpl"}
 	
-		<div class="form-group">
+		<!--<div class="form-group">
 			<div class="checkbox">
 				<label for="pdf">
 					<input id="pdf" name="pdf" type="checkbox" value="true" />
 					Render as a PDF file
 				</label>
 			</div>
-		</div>
+		</div>-->
 		
 		<div class="form-group">
 			<button type="submit" class="btn btn-primary has-spinner">Display Commit <span class="spinner"><i class="fa fa-refresh fa-spin"></i></span></button>

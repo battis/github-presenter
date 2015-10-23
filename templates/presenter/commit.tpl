@@ -15,7 +15,7 @@
 			<div class="checkbox">
 				<label for="ignore_invisible">
 					<input id="ignore_invisible" name="ignore_invisible" type="checkbox" value="true" checked="checked" />
-					Ignore &ldquo;invisible&rdquo; <code>.files</code>
+					Ignore &ldquo;invisible&rdquo; <code>.dot_files</code>
 				</label>
 			</div>
 		</div>
