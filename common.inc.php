@@ -2,6 +2,8 @@
 	
 require_once(__DIR__ . '/vendor/autoload.php');
 
+use Battis\GitHubPresenter\TokenPest;
+
 function html_var_dump($var) {
 	echo '<pre>';
 	var_dump($var);

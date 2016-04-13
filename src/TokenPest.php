@@ -1,4 +1,8 @@
 <?php
+
+namespace Battis\GitHubPresenter;
+
+use Pest;
 	
 class TokenPest extends Pest {
 	
