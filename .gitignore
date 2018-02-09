@@ -1,2 +1,3 @@
-secrets.xml
 /vendor/
+/phpdoc/
+secrets.xml

@@ -1,12 +1,13 @@
 {extends file="subpage.tpl"}
-
-{block name="subcontent"}
-
+{block name="post-bootstrap-stylesheets"}
 	<style>
 		.img-responsive {
 			padding: 1em;
 		}
 	</style>
+{/block}
+
+{block name="subcontent"}
 
 	<div class="container">
 		<div class="readable-width">

@@ -1,6 +1,8 @@
 <?php
-	
+
 require_once('common.inc.php');
+
+use mikehaertl\wkhtmlto\Pdf;
 
 define('STEP_COMMIT', 1);
 define('STEP_FILES', 2);
@@ -20,9 +22,9 @@ $extensions = array(
 );
 
 switch($step) {
-	
+
 	case STEP_DISPLAY:
-	
+
 		try {
 			$commit = json_decode(
 				$github->get($_REQUEST['commit']),
@@ -36,11 +38,12 @@ switch($step) {
 			);
 			$step = STEP_COMMIT;
 		}
-		
+
 		if ($step == STEP_DISPLAY) {
+			$smarty->assign('title', date('Y-m-d ', strtotime($commit['author']['date'])). strtok($commit['message'], "\n") . " by {$commit['author']['name']}");
 			$commit['message'] = \Michelf\Markdown::defaultTransform('# ' . $commit['message']);
 			$smarty->assign('commit', $commit);
-		
+
 			$files = array();
 			foreach ($_REQUEST['files'] as $path => $url) {
 				$blob = json_decode($github->get($url), true);
@@ -49,34 +52,41 @@ switch($step) {
 					$language = $extensions[$language];
 				}
 	 			$geshi = new GeSHi(base64_decode($blob['content']), $language);
-				$geshi->set_header_type(GESHI_HEADER_PRE_TABLE);
-				$geshi->enable_line_numbers(GESHI_FANCY_LINE_NUMBERS);
-	
+				$geshi->set_header_type(GESHI_HEADER_DIV);
+				$geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
+
 				$files[$path] = array(
 					'filename' => basename($path),
 					'path' => dirname($path),
-					'content' => $geshi->parse_code()
+					'content' => '<div class="geshi">' . $geshi->parse_code() . '</div>'
 				);
 			}
-			
+
 			$smarty->assign('files', $files);
 			if (empty($_REQUEST['pdf']) || !$_REQUEST['pdf']) {
 				$smarty->display('display.tpl');
 			} else {
-				$dompdf = new \Dompdf\Dompdf();
-				$dompdf->loadHtml($smarty->fetch('display.tpl'));
-				$dompdf->render();
-				$dompdf->stream();
+                $pdf = new Pdf([
+					'print-media-type',
+					'dpi' => 300, // FIXME may be Mac-specific (cf. https://github.com/wkhtmltopdf/wkhtmltopdf/issues/3241)
+					'margin-left' => 25.4, // FIXME 25.4mm = 1in
+					'margin-right' => 25.4,
+					'margin-top' => 25.4,
+					'margin-bottom' => 25.4
+				]);
+				$pdf->binary = $secrets->wkhtmltopdf;
+				$pdf->addPage($smarty->fetch('display.tpl'));
+                $pdf->send($smarty->getTemplateVars('title') . '.pdf');
 				exit;
 			}
-		
+
 			break;
 		}
-		
+
 		/* flow into STEP_FILES */
 
 	case STEP_FILES:
-	
+
 		if (empty($_REQUEST['commit_url'])) {
 			$smarty->addMessage(
 				'Missing Commit URL',
@@ -85,7 +95,7 @@ switch($step) {
 			);
 			$step = STEP_COMMIT;
 		}
-	
+
 		if ($step == STEP_FILES) {
 			/* get the commit information */
 			try {
@@ -107,7 +117,7 @@ switch($step) {
 				);
 				$step = STEP_COMMIT;
 			}
-	
+
 			if ($step == STEP_FILES) {
 				/* get the commit tree */
 				try {
@@ -132,7 +142,7 @@ switch($step) {
 					);
 					$step = STEP_COMMIT;
 				}
-				
+
 				if ($step == STEP_FILES) {
 					/* make a list of changed subdirectories of the root (i.e. Eclipse projects) */
 					$changes = array();
@@ -146,8 +156,8 @@ switch($step) {
 							}
 						}
 					}
-			
-					/* make a list of viewable files in the commit tree */		
+
+					/* make a list of viewable files in the commit tree */
 					$tree = array();
 					$currentDir = '@';
 					foreach ($commitTree['tree'] as $leaf) {
@@ -161,7 +171,7 @@ switch($step) {
 							}
 						}
 					}
-					
+
 					$commit['commit']['message'] = \Michelf\Markdown::defaultTransform('### ' . $commit['commit']['message']);
 					$smarty->assign('commit', $commit['commit']);
 					$smarty->assign('tree', $tree);
@@ -172,7 +182,7 @@ switch($step) {
 				}
 			}
 		}
-		
+
 		/* flow into STEP_COMMIT */
 
 	case STEP_COMMIT:

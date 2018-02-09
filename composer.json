@@ -2,11 +2,11 @@
     "name": "battis/github-presenter",
     "description": "Present the source code in the tree of a Git commit as a single web page",
     "require": {
-        "smtech/stmarkssmarty": "dev-master",
+        "battis/bootstrapsmarty": "~2.0",
         "educoder/pest": "dev-master",
-        "geshi/geshi": "dev-master",
+        "geshi/geshi": "~1.0",
 		"michelf/php-markdown": "~1.5",
-		"dompdf/dompdf" : "~0.6"
+        "mikehaertl/phpwkhtmltopdf": "~2.3"
     },
     "license": "GPL-3.0",
     "authors": [

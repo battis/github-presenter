@@ -5,16 +5,16 @@
 		.path {
 			font-size: smaller;
 		}
-		
+
 		.path.dir {
 			color: gray;
 		}
-		
+
 		.path.dir.project {
 			color: black;
 			font-size: medium;
 		}
-		
+
 		.path.file {
 			color: black;
 			font-size: medium;
@@ -22,18 +22,18 @@
 	</style>
 
 	{include file="commit.tpl"}
-	
-		<!--<div class="form-group">
+
+		<div class="form-group">
 			<div class="checkbox">
 				<label for="pdf">
-					<input id="pdf" name="pdf" type="checkbox" value="true" />
+					<input id="pdf" name="pdf" type="checkbox" value="true" checked />
 					Render as a PDF file
 				</label>
 			</div>
-		</div>-->
-		
+		</div>
+
 		<div class="form-group">
-			<button type="submit" class="btn btn-primary has-spinner">Display Commit <span class="spinner"><i class="fa fa-refresh fa-spin"></i></span></button>
+			<button type="submit" class="btn btn-primary has-spinner">Display Commit</button>
 		</div>
 
 	{foreach $tree as $leaf}
@@ -52,7 +52,7 @@
 	{/foreach}
 
 	{assign var="formButton" value="Display Files"}
-	
+
 {/block}
 
 {block name="form-buttons"}{/block}

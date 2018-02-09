@@ -9,7 +9,7 @@
 			<p class="help-block">Paste the URL of your commit from the GitHub history page</p>
 		</div>
 	</div>
-	
+
 	<div class="form-group">
 		<div class="col-sm-offset-{$formLabelWidth}">
 			<div class="checkbox">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="form-group">
 		<label for="regex_filter" class="control-label col-sm-{$formLabelWidth}">Filter RegEx</label>
 		<div class="col-sm-{12 - 2 * $formLabelWidth}">
@@ -33,7 +33,7 @@
 			</label>
 		</div>
 	</div>
-	
+
 	{assign var="formButton" value="Choose Files"}
 
 {/block}
