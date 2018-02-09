@@ -28,28 +28,6 @@
 		    color: #ccc;
 		    font-weight: normal;
 		}
-
-		.geshi ol {
-			list-style-type: none;
-			margin-left: 0;
-		}
-
-		.geshi ol > li {
-			counter-increment: linecounter;
-			text-indent: -3em;
-		}
-
-		.geshi ol > li:before {
-			content: counter(linecounter) " ";
-			float: left;
-			color: lightgray;
-			width: 3em;
-		}
-
-		.geshi ol:first-child {
-			counter-reset: linecounter;
-		}
-
 		</style>
 	</head>
 	<body>

@@ -54,6 +54,8 @@ switch($step) {
 	 			$geshi = new GeSHi(base64_decode($blob['content']), $language);
 				$geshi->set_header_type(GESHI_HEADER_DIV);
 				$geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS);
+				$geshi->set_line_style('color: lightgray;');
+				$geshi->set_code_style('color: black;');
 
 				$files[$path] = array(
 					'filename' => basename($path),
