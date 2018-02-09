@@ -6,12 +6,6 @@ use Battis\DataUtilities;
 use Battis\BootstrapSmarty\BootstrapSmarty;
 use Battis\GitHubPresenter\TokenPest;
 
-function html_var_dump($var) {
-	echo '<pre>';
-	var_dump($var);
-	echo '</pre>';
-}
-
 $secrets = simplexml_load_string(file_get_contents('secrets.xml'));
 
 $smarty = BootstrapSmarty::getSmarty(__DIR__ . '/templates');
