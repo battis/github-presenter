@@ -33,7 +33,15 @@
 			</label>
 		</div>
 	</div>
-
-	{assign var="formButton" value="Choose Files"}
-
 {/block}
+
+{block name="form-buttons"}
+        
+	<div class="form-group">
+                <div class="col-sm-offset-{$formLabelWidth} col-sm-{12 - $formLabelWidth}">
+                    <button type="submit" class="btn btn-primary has-spinner">{$formButton|default: "Choose Files"}</button>
+                </div>    
+            </div>
+            
+        {/block}
+
